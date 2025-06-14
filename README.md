@@ -1,5 +1,3 @@
-
-
 # 🌐 HarmonyOS PC Web 开发示例
 
 基于鸿蒙PC系统的轻量级Web程序开发实践
@@ -24,14 +22,18 @@ cd web-develop-demo-in-harmony-os-pc
 
 # 通过鸿蒙浏览器直接打开 index.html运行
 
-📂 项目结构.
+📂 项目结构
+```
+.
 ├── docs/                      # 源码目录
-│   ├── index.html            # 主入口文件
-│   ├── styles/               # CSS 样式资源
-│   └── scripts/              # JavaScript 逻辑模块
+│   └── index.html            # 主入口文件（包含内联CSS和JS）
+├── .github/
+│   └── workflows/
+│       └── static.yml        # GitHub Pages 部署配置
 ├── .gitignore                # Git 忽略配置
 ├── README.md                 # 项目说明（本文档）
 └── LICENSE                   # 开源协议（默认MIT）
+```
 
 ✨ 主要功能
 
