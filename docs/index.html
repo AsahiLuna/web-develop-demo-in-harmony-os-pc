@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="鸿蒙PC系统Web开发示例">
+    <title>鸿蒙PC Web开发示例 | HarmonyOS Web Demo</title>
+    <style>
+        :root {
+            --harmony-blue: #0a59f7;
+            --harmony-gradient: linear-gradient(135deg, #0a59f7, #00c6ff);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'HarmonyOS Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--harmony-gradient);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(10, 89, 247, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h2 {
+            color: var(--harmony-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2 i {
+            font-size: 1.8rem;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            color: var(--harmony-blue);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .demo-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .counter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+        }
+        
+        #count {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--harmony-blue);
+        }
+        
+        .btn {
+            background: var(--harmony-gradient);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(10, 89, 247, 0.3);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .device-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .info-item {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: var(--harmony-blue);
+            margin-bottom: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+        }
+        
+        .github-badge {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .github-badge:hover {
+            background: #0a59f7;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>鸿蒙PC Web开发示例</h1>
+        <p class="subtitle">基于HarmonyOS PC系统的Web应用程序开发实践</p>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2>📱 项目简介</h2>
+            <p>本示例展示如何在鸿蒙PC系统上进行Web开发，包含以下核心功能：</p>
+            <ul class="feature-list">
+                <li>鸿蒙浏览器兼容性测试</li>
+                <li>设备信息获取演示</li>
+                <li>本地存储功能实现</li>
+                <li>响应式布局设计</li>
+                <li>GitHub Pages部署</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>🛠 技术栈</h2>
+            <ul class="feature-list">
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript (ES6)</li>
+                <li>鸿蒙PC自带浏览器</li>
+                <li>GitHub Pages部署</li>
+                <li>GitHub Codespaces开发</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>🚀 快速开始</h2>
+            <ol style="padding-left: 20px; margin-top: 15px;">
+                <li style="padding: 8px 0;">克隆仓库到本地</li>
+                <li style="padding: 8px 0;">在鸿蒙浏览器中打开index.html</li>
+                <li style="padding: 8px 0;">探索各项功能演示</li>
+                <li style="padding: 8px 0;">修改代码进行二次开发</li>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="demo-section">
+        <h2 style="text-align: center; margin-bottom: 25px; color: var(--harmony-blue);">✨ 功能演示</h2>
+        
+        <div class="counter">
+            <div id="count">0</div>
+            <button class="btn" id="counterBtn">增加计数</button>
+            <p>计数器状态使用localStorage保存，刷新页面后数据不会丢失</p>
+        </div>
+        
+        <h3 style="margin: 30px 0 15px; text-align: center;">设备信息（鸿蒙浏览器）</h3>
+        <div class="device-info">
+            <div class="info-item">
+                <div class="info-label">操作系统</div>
+                <div id="os-info">检测中...</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">浏览器</div>
+                <div id="browser-info">检测中...</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">语言</div>
+                <div id="language-info">检测中...</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">核心数</div>
+                <div id="core-info">检测中...</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 鸿蒙PC Web开发示例 | 基于HarmonyOS PC系统</p>
+        <p>开源许可证：MIT License</p>
+        <a href="https://github.com/your-username/web-develop-demo-in-harmony-os-pc" 
+           class="github-badge" 
+           target="_blank">
+            🌟 在GitHub上查看项目
+        </a>
+    </footer>
+
+    <script>
+        // 计数器功能
+        const counterBtn = document.getElementById('counterBtn');
+        const countDisplay = document.getElementById('count');
+        
+        // 从localStorage加载计数
+        let count = localStorage.getItem('harmonyCounter') || 0;
+        countDisplay.textContent = count;
+        
+        counterBtn.addEventListener('click', () => {
+            count++;
+            countDisplay.textContent = count;
+            localStorage.setItem('harmonyCounter', count);
+        });
+        
+        // 设备信息检测
+        document.getElementById('os-info').textContent = 
+            navigator.platform || '未知操作系统';
+        
+        document.getElementById('browser-info').textContent = 
+            navigator.userAgent.split(') ')[0].split('(')[1] || '未知浏览器';
+        
+        document.getElementById('language-info').textContent = 
+            navigator.language || navigator.userLanguage || '未知';
+        
+        // 核心数检测（模拟）
+        document.getElementById('core-info').textContent = 
+            navigator.hardwareConcurrency ? `${navigator.hardwareConcurrency} 核心` : '未知';
+    </script>
+</body>
+</html>
