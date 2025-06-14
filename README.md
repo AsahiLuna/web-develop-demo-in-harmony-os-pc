@@ -1,8 +1,18 @@
 # 🌐 HarmonyOS PC Web 开发示例
 
-基于鸿蒙PC系统的轻量级Web程序开发实践
+基于鸿蒙PC系统的轻量级Web程📄 开源协议
+本项目采用 MIT License 开放源代码，可自由用于学习或商业项目。
 
-### 🚀 项目简介
+🌐 在线演示
+项目已配置GitHub Pages自动部署。启用步骤请参考：[DEPLOYMENT.md](./DEPLOYMENT.md)
+
+🤝 参与贡献
+1. Fork 本仓库  
+2. 创建新分支（ feat/xxx  或  fix/xxx ）  
+3. 提交 Pull Request 并描述修改内容
+  
+
+💡 提示：鸿蒙 PC 的 Web 生态仍在快速发展中，本项目将持续跟进 HarmonyOS 最新特性更新。 🚀 项目简介
 本项目  web-develop-demo-in-harmony-os-pc  是一个面向 HarmonyOS PC 系统 的 Web 应用程序开发示例。旨在展示如何利用鸿蒙原生能力开发、调试和部署现代 Web 应用，为开发者提供鸿蒙 PC 平台的 Web 开发参考范例。
 
 ### 🔧 技术栈与工具类别工具/技术说明开发环境
