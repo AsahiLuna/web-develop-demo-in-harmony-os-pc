@@ -31,13 +31,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Enable GitHub Pages if not already enabled
+          enablement: true
+          # Set the source to GitHub Actions
+          source: gh-actions
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload docs directory
           path: 'docs'
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
